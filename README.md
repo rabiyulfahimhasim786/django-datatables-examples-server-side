@@ -20,24 +20,24 @@ https://datatables.net/
 DataTables is a powerful jQuery plugin for creating table listings and adding interactions to them. It provides searching, sorting and pagination without any configuration. 
 
 
-testdev/urls.py
-
-//testdev/urls.py
-from django.contrib import admin
-from django.urls import path
-from myapp import views
+ testdev/urls.py
  
-urlpatterns = [
-    path('', views.index, name='index'),
-    path('insert', views.insert, name='insert'),
-    path('admin/', admin.site.urls),
-]
-myapp/views.py
-
-//myapp/views.py
-from django.shortcuts import render, redirect
-from .models import Member
+ //testdev/urls.py
+ from django.contrib import admin
+ from django.urls import path
+ from myapp import views
+  
+ urlpatterns = [
+     path('', views.index, name='index'),
+     path('insert', views.insert, name='insert'),
+     path('admin/', admin.site.urls),
+ ]
+ myapp/views.py
  
+ //myapp/views.py
+ from django.shortcuts import render, redirect
+ from .models import Member
+  
 # Create your views here.
 def index(request):
     all_members = Member.objects.all()
