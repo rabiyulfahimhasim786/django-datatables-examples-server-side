@@ -1,16 +1,16 @@
 # django-datatables-examples-server-side
 django-datatables-examples-server-side
 
-#Reference - [link](https://tutorial101.blogspot.com/2022/04/python-django-how-to-use-datatables.html)
+# Reference - [link](https://tutorial101.blogspot.com/2022/04/python-django-how-to-use-datatables.html)
 
 
 Python Django How To Use DataTables with Insert Data Jquery Ajax
 
-Bootstrap 5
+# Bootstrap 5
 https://getbootstrap.com/docs/5.0/getting-started/introduction/
 https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css
 
-Jquery
+# Jquery
 https://jquery.com/download/
 CDN : jsDelivr CDN
 https://www.jsdelivr.com/package/npm/jquery
@@ -19,8 +19,10 @@ https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
 https://datatables.net/
 DataTables is a powerful jQuery plugin for creating table listings and adding interactions to them. It provides searching, sorting and pagination without any configuration. 
 
+# testdev/urls.pY
 
- testdev/urls.py
+```
+
  
  //testdev/urls.py
  from django.contrib import admin
@@ -32,6 +34,10 @@ DataTables is a powerful jQuery plugin for creating table listings and adding in
      path('insert', views.insert, name='insert'),
      path('admin/', admin.site.urls),
  ]
+```
+
+#  myapp/views.py
+```
  myapp/views.py
  
  //myapp/views.py
@@ -47,6 +53,9 @@ def insert(request):
     member = Member(firstname=request.POST['firstname'], lastname=request.POST['lastname'], address=request.POST['address'])
     member.save()
     return redirect('/')
+```
+# myapp/models.py
+```
 myapp/models.py
 
    //myapp/models.py
@@ -60,7 +69,10 @@ myapp/models.py
      
        def __str__(self):
            return self.firstname + " " + self.lastname
-           
+```
+
+ #  myapp/templates/datatables/index.html
+```
    myapp/templates/datatables/index.html
 
      //myapp/templates/datatables/index.html
@@ -125,65 +137,12 @@ myapp/models.py
          </tbody>
      </table>
      {% endblock %}
+
+```
+# myapp/templates/datatables/base.html
+```
 myapp/templates/datatables/base.html
-?
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
+
 //myapp/templates/datatables/base.html
 <!DOCTYPE html>
 <html lang="en">
@@ -241,19 +200,12 @@ $(document).ready(function(){
 });
 </script>
 </html>
-Register App myapp
-devtest/settings.py
-?
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+```
+
+# Register App myapp
+
+# devtest/settings.py
+```
 //devtest/settings.py
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -264,7 +216,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
 ]
+```
 
-migration
+# migration
+```
 C:\my_project_django\testdev>python manage.py makemigrations
 C:\my_project_django\testdev>python manage.py migrate
+```
